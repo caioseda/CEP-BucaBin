@@ -5,7 +5,8 @@ import time
 if len(sys.argv) !=2:
     print("USO %s [CEP]" % sys.argv[0])
     quit()
-
+    
+#lê a linha inteira quando acha o CEP
 def LeituraLinha(Tupla):
     print("\n# Informações encontradas!\n")
     for i in range(0,len(Tupla)-1):
@@ -81,5 +82,5 @@ while (inicio_CEP <= fim_CEP)& achei==False :
 print("\nNumero de iterações: %d " %counter)
 tempoT=time.time()-tempo
 print("Tempo total: %.2f segundos"%tempoT)
-#lê a linha inteira quando acha o CEP
+
 
