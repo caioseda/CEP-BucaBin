@@ -20,20 +20,22 @@ size = registroCEP.size
 f = open("cep_ordenado.dat","rb")
 
 f.seek(0,2)
-#A posição da linha inicial começa na posição 0
-#A posição da linha final começa na (quantidade de linhas-1) multiplicado pela o tamanho de cada linha
+#O index da linha inicial começa no 0
+#O index da linha final começa na (quantidade de linhas-1)
 indexInicio=0
 indexFim=(f.tell()/size)-1
 
 
 #coloca o leitor pro inicio
 f.seek(0)
-#le a linha
+#le a linha, coloca os valores numa tupla e em seguida extrai o cep
 inicio_Linha = f.read(size)
 inicio_Tupla = registroCEP.unpack(inicio_Linha)
 inicio_CEP = str(inicio_Tupla[CepColumn],'latin1')
 
+#coloca o leitor pra última linha
 f.seek(int(indexFim*size))
+#le a linha, coloca os valores numa tupla e em seguida extrai o cep
 fim_Linha = f.read(size)
 fim_Tupla = registroCEP.unpack(fim_Linha)
 fim_CEP = str(fim_Tupla[CepColumn],'latin1')
